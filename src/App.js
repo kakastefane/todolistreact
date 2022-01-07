@@ -3,8 +3,14 @@ import { useState } from 'react';
 function App() {
   const [input, setInput] = useState('');
   const [todos, setTodos] = useState([
-    'tarefa 1',
-    'tarefa 2'
+    {
+      name: 'tarefa 1',
+      done: false,
+    },
+    {
+      name: 'tarefa 2',
+      done: true,
+    }
   ]);
 
   function handleTodos(e) {
@@ -15,7 +21,7 @@ function App() {
 
   return (
     <div>
-      <h1>Tarefas</h1>
+      <h1>Todo List</h1>
       <form onSubmit={handleTodos}>
         <input
           type="text"
@@ -27,7 +33,7 @@ function App() {
       </form>
       <ul>
         {todos.map(todo => (
-          <li>{todo}</li>
+          <li key={todo.name}>{todo.name}</li>
         ))}
       </ul>
     </div>
