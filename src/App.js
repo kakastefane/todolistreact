@@ -20,15 +20,23 @@ function App() {
     e.preventDefault();
 
     setTodos([...todos, {
-      name: input,
-      done: false
+      id: Math.random() * 9999,
+      name: input
     }]);
 
     setInput('');
   }
 
-  function handleDeleteTodo() {
-    //todo - create function to remove todo from todos list.
+  function handleDeleteTodo(e) {
+    e.preventDefault();
+
+    const idTodo = e.target.value;
+
+    const todosUpdated = todos.filter(function (item) {
+      return item.id != idTodo;
+    });
+
+    setTodos(todosUpdated);
   }
 
   return (
@@ -46,7 +54,9 @@ function App() {
       </form>
       <ul>
         {todos.map(todo => (
-          <li key={todo.name}>{todo.name} <button onClick={handleDeleteTodo}>Delete</button></li>
+          <li key={todo.id}>
+            {todo.name} <button value={todo.id} onClick={handleDeleteTodo}>Delete</button>
+          </li>
         ))}
       </ul>
     </div>
