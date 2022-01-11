@@ -1,0 +1,92 @@
+:root {
+  --primary: #334E5C;
+  --light-gray: #f0f0f0;
+  --dark-gray: #666;
+  --white: #fff;
+  --red: #EE3A59;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.app {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.app__title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.form__input {
+  width: 100%;
+  flex: 1;
+  height: 3rem;
+  border: 0;
+  padding: 0 1rem;
+  border-radius: 1rem 0 0 1rem;
+  background-color: var(--light-gray);
+}
+
+.form__button {
+  padding: 0 1rem;
+  border-radius: 0 1rem 1rem 0;
+  height: 3rem;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary);
+  color: var(--white);
+  font-weight: bold;
+}
+
+.form__button svg {
+  width: 20px;
+  height: 20px;
+}
+
+.todolist {
+  list-style: none;
+}
+
+.todolist__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--dark-gray);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--light-gray);  
+}
+
+.todolist__button {
+  height: 1.5rem;
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  border: none;
+  background-color: var(--red);
+  color: var(--white);
+}
+.todolist__button svg {
+  width: 14px;
+  height: 14px;
+}

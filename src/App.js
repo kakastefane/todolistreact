@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
 
+import { PlusIcon, XIcon } from '@heroicons/react/solid';
+import './App.css';
+
 function App() {
   const [input, setInput] = useState('');
   const [todos, setTodos] = useState([]);
@@ -40,22 +43,28 @@ function App() {
   }
 
   return (
-    <div>
-      <h1>Todo List</h1>
-      <form onSubmit={handleTodos}>
+    <div className='app'>
+      <h1 className='app__title'>Todo List</h1>
+      <form className='form' onSubmit={handleTodos}>
         <input
+          className='form__input'
           type="text"
           placeholder="Enter the task name"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           required
         />
-        <button type="submit">Create</button>
+        <button className='form__button' type="submit">
+          <PlusIcon /> add
+        </button>
       </form>
-      <ul>
+      <ul className='todolist'>
         {todos.map(todo => (
-          <li key={todo.id}>
-            {todo.name} <button value={todo.id} onClick={handleDeleteTodo}>Delete</button>
+          <li className='todolist__item' key={todo.id}>
+            {todo.name}
+            <button className='todolist__button' value={todo.id} onClick={handleDeleteTodo}>
+              <XIcon /> del
+            </button>
           </li>
         ))}
       </ul>
